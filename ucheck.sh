@@ -11,19 +11,19 @@
 # =========================================
 #
 
+defvalue='filippo'
+
 while read hostn sid logu; do
 
    v_sid=$sid;
    v_arg=$1;
-   v_logu=$2;
+   v_logu=${$2:-${defvalue}}
   
    if [ ! "$1" ]; then
       echo "Sintax: ucheck.sh <user> [<loguser>]"
       exit
    elif [ ! "$2" ]; then 
-      if [ -z "$logu" ]; then
-            v_logu="mspinell"
-      else
+      if [ ! -z "$logu" ]; then
             v_logu=$logu
       fi
    fi 
